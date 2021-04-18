@@ -1,5 +1,4 @@
 import IO_module
-import sys
 
 def main():
     args = IO_module.get_arguments()

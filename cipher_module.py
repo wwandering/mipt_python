@@ -1,6 +1,12 @@
 from string import ascii_letters
+from abc import ABC
 
-class Caesar:
+
+class Cipher(ABC):
+    pass
+
+
+class Caesar(Cipher):
     step = int()
     alphabet_size = 26
 
@@ -44,7 +50,7 @@ class Caesar:
         return result
 
 
-class Vigenere:
+class Vigenere(Cipher):
     key = str()
     alphabet_size = 26
 
@@ -92,7 +98,7 @@ class Vigenere:
         return result
 
 
-class Vernam:
+class Vernam(Cipher):
     key = str()
     alphabet = ascii_letters
 
