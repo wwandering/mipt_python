@@ -4,17 +4,30 @@ import decipher_module
 
 
 def read_data(file):
+    """
+    Read data from the input file
+    :param file: input file
+    :return: file content
+    """
     with open(file, 'r') as content:
         text = content.read()
     return text
 
 
 def write_data(data, file):
+    """
+    Write data to the output file
+    :param data: data to write
+    :param file: output file
+    """
     with open(file, 'w') as content:
         content.write(data)
 
 
 def encode(args):
+    """
+    Encode file content with available ciphers (Vernam, Caesar, Vigenere) and write it to the output file
+    """
     try:
         if args.cipher == "vernam":
             text = read_data(args.input)
@@ -34,6 +47,9 @@ def encode(args):
 
 
 def decode(args):
+    """
+    Decode file content with available ciphers (Vernam, Caesar, Vigenere) and write it to the output file
+    """
     try:
         if args.cipher == "vernam":
             text = read_data(args.input)
@@ -53,6 +69,9 @@ def decode(args):
 
 
 def attack(args):
+    """
+    Decode file content encrypted by Caesar cipher with frequency analysis
+    """
     try:
         text = read_data(args.input)
         write_data(decipher_module.deciphering(text, args.n), args.output)
@@ -61,6 +80,9 @@ def attack(args):
 
 
 def get_arguments():
+    """
+    Build parser for command line arguments
+    """
     parser = argparse.ArgumentParser()
     subs = parser.add_subparsers()
 
@@ -88,7 +110,7 @@ def get_arguments():
     attack_parser = subs.add_parser("attack")
     attack_parser.set_defaults(action="attack", func=attack)
     attack_parser.add_argument("-n", type=int, help="A positive integer parameter for frequence analysis"
-                                                    " choosing N-grams to analyse", required=True)
+                                                    " choosing N-grams to analyze", required=True)
     attack_parser.add_argument("-i", "--input", type=str, help="input file path", required=True)
     attack_parser.add_argument("-o", "--output", type=str, help="output file path", required=True)
 

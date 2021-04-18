@@ -3,6 +3,13 @@ from cipher_module import Caesar
 
 
 def get_similarity(message, data, n):
+    """
+    Counts similarity
+    :param message: text to analyze
+    :param data: distribution data
+    :param n: size of n-grams
+    :return: similarity rate
+    """
     similarity = 0
     current_pref = message[:n - 1]
     length = len(message)
@@ -14,6 +21,12 @@ def get_similarity(message, data, n):
 
 
 def n_builder(message, n):
+    """
+    Builds distribution data
+    :param message: text content
+    :param n: size of n-grams
+    :return: distribution data
+    """
     n = max(1, n)
     result = dict()
     length = len(message)
@@ -34,6 +47,12 @@ def n_builder(message, n):
 
 
 def deciphering(message, n):
+    """
+    Decode message through frequency analysis with n-grams
+    :param message: text content
+    :param n: size of n-grams
+    :return: decoded message
+    """
     data = n_builder(message, n)
     tmp = message
     max_similarity = 0

@@ -5,9 +5,18 @@ class Caesar:
     alphabet_size = 26
 
     def __init__(self, key):
+        """
+        Initialize Caesar entity with given step
+        :param key: step size
+        """
         self.step = key
 
     def encode(self, message):
+        """
+        Encodes text with Caesar cipher and given step
+        :param message: text content
+        :return: encoded text
+        """
         result = str()
         for char in message:
             if char not in ascii_letters:
@@ -19,6 +28,11 @@ class Caesar:
         return result
 
     def decode(self, message):
+        """
+        Decodes text with Caesar cipher and given step
+        :param message: text content
+        :return: decoded text
+        """
         result = str()
         for char in message:
             if char not in ascii_letters:
@@ -35,9 +49,18 @@ class Vigenere:
     alphabet_size = 26
 
     def __init__(self, key):
+        """
+        Initialize Vigenere entity with given key
+        :param key: key
+        """
         self.key = key
 
     def encode(self, message):
+        """
+        Encodes text with Vigenere cipher and given key
+        :param message: text content
+        :return: encoded text
+        """
         result = str()
         current_pos_in_key = 0
         for char in message:
@@ -51,6 +74,11 @@ class Vigenere:
         return result
 
     def decode(self, message):
+        """
+        Decodes text with Vigenere cipher and given key
+        :param message: text content
+        :return: decoded text
+        """
         result = str()
         current_pos_in_key = 0
         for char in message:
@@ -69,9 +97,18 @@ class Vernam:
     alphabet = ascii_letters
 
     def __init__(self, key):
+        """
+        Initialize Vernam entity with given key
+        :param key: key
+        """
         self.key = key
 
     def encode(self, message):
+        """
+        Encodes text with Vernam cipher and given key
+        :param message: text content
+        :return: encoded text
+        """
         result = str()
         current_key_pos = 0
         for char in message:
@@ -83,5 +120,10 @@ class Vernam:
         return result
 
     def decode(self, message):
+        """
+        Decodes text with Vernam cipher and given key
+        :param message: text content
+        :return: decoded text
+        """
         # Thanks to XOR properties, encoding already encoded message with the same key gives us initial message.
         return self.encode(message)
