@@ -1,5 +1,5 @@
 # CryptoWail
-A very simple script for encrypting/decrypting text content with Caesar, Vigenere, Vernam ciphers (decrypting Caesar ciphre with frequency analysis included).
+A very simple script for encrypting/decrypting text content with Caesar, Vigenere, Vernam ciphers (decrypting Caesar cipher with frequency analysis included).
 
 ## Usage
 Currently this script supports only english characters. Any non-english alphabet character will be ignored!
